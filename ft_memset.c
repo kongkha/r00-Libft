@@ -16,10 +16,7 @@ void	*ft_memset(void *s, int c, size_t n)
 {
 	void *const	s_o = s;
 
-	while (n)
-	{
-		*(char *)(s++) = c;
-		--n;
-	}
+	while (n--)
+		*(unsigned char *)(s++) = c;
 	return (s_o);
 }

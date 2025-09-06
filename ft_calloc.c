@@ -15,9 +15,11 @@
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-	const size_t	alloc_size = nmemb * size;
+	void	*ptr;
 
-	if (nmemb != 0 && alloc_size / nmemb != size)
-		return (NULL);
-	return (malloc(alloc_size));
+	if (size && nmemb > (size_t)(-1) / size)
+		return (malloc(0));
+	ptr = malloc(nmemb * size);
+	ft_memset(ptr, 0, nmemb * size);
+	return (ptr);
 }

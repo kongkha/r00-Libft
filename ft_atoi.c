@@ -24,23 +24,15 @@ int	ft_atoi(const char *nptr)
 
 	while (ft_isspace(*nptr))
 		++nptr;
-	if (*nptr == '-')
-	{
-		neg = -1;
+	neg = 1 - (2 * (*nptr == '-'));
+	if (*nptr == '-' || *nptr == '+')
 		++nptr;
-	}
-	else if (*nptr == '+')
-	{
-		++nptr;
-		neg = 1;
-	}
-	else
-		neg = 1;
 	num = 0;
-	while (nptr && ft_isdigit(*nptr))
+	while (*nptr && ft_isdigit(*nptr))
 	{
 		num *= 10;
 		num += (*nptr - '0') * neg;
+		++nptr;
 	}
 	return (num);
 }

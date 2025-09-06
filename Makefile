@@ -9,7 +9,7 @@ OBJS := $(SRCS:$(SRCS_DIR)/%.c=$(BUILD_DIR)/%.o)
 BONUSES_OBJS := $(BONUSES:$(SRCS_DIR)/%.c=$(BUILD_DIR)/%.o)
 
 INC_FLAGS := $(addprefix -I, $(INC_DIRS))
-CFLAGS := -Wall -Wextra -Werror $(INC_FLAGS)
+CFLAGS += -Wall -Wextra -Werror $(INC_FLAGS)
 
 NAME := libft.a
 
