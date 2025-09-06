@@ -1,0 +1,32 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/05 00:37:52 by pkongkha          #+#    #+#             */
+/*   Updated: 2025/09/05 00:47:38 by pkongkha         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <libft.h>
+
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+{
+	char	*dst;
+	size_t	dst_len;
+	size_t	i;
+
+	dst_len = ft_strlen(s);
+	dst = malloc(dst_len + 1);
+	if (!dst)
+		return (NULL);
+	i = 0;
+	while (i < dst_len)
+	{
+		dst[i] = f(i, *s++);
+		++i;
+	}
+	return (dst);
+}
