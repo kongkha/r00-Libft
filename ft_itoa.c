@@ -22,11 +22,9 @@ char	*ft_itoa(int n)
 
 	n_tmp = n;
 	counter = 1;
-	while (n_tmp / 10) ++counter;
-	if (n < 0)
-		str = malloc(counter + 2);
-	else
-		str = malloc(counter + 1);
+	while (n_tmp / 10)
+		++counter;
+	str = malloc(counter + 2 + (n < 0));
 	if (!str)
 		return (NULL);
 	str_o = str;

@@ -12,7 +12,7 @@
 
 #include <libft.h>
 
-static int ft_isspace(int c)
+static int	ft_isspace(int c)
 {
 	return ((c >= '\t' && c <= '\r') || c == ' ');
 }

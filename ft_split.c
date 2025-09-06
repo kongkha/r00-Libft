@@ -31,7 +31,8 @@ char	**ft_split(char const *s, char c)
 	char			**substrs_o;
 	size_t			alloc_size;
 
-	substrs_o = substrs = malloc(substr_count + 1);
+	substrs = malloc(substr_count + 1);
+	substrs_o = substrs;
 	alloc_size = 1;
 	while (*(s - alloc_size - 1))
 	{

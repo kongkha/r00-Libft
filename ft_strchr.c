@@ -6,7 +6,7 @@
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/30 16:14:28 by pkongkha          #+#    #+#             */
-/*   Updated: 2025/08/31 02:15:44 by pkongkha         ###   ########.fr       */
+/*   Updated: 2025/09/06 22:05:56 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	while (*s && *s++ != c);
+	while (*s && *s++ != c)
+		;
 	return ((char *)s);
 }

@@ -6,14 +6,15 @@
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 00:38:43 by pkongkha          #+#    #+#             */
-/*   Updated: 2025/09/06 21:16:06 by pkongkha         ###   ########.fr       */
+/*   Updated: 2025/09/06 22:04:48 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 #include <stdlib.h>
 
-static int	ft_isinlist(const char c, const char *charset, size_t charset_len) {
+static int	ft_isinlist(const char c, const char *charset, size_t charset_len)
+{
 	while (charset_len--)
 	{
 		if (*charset == c)

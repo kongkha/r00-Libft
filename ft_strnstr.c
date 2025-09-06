@@ -14,16 +14,16 @@
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	const char* const	big_o = big;
-	const char* const	little_o = little;
-	const char*			little_start;
+	const char *const	big_o = big;
+	const char *const	little_o = little;
+	const char			*little_start;
 
 	while (len)
 	{
 		if (*big == *little)
 		{
 			if (!*little++)
-				return ((char*)little_start);
+				return ((char *)little_start);
 			else if (!little_start)
 				little_start = big;
 		}
@@ -35,5 +35,5 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 		++big;
 		--len;
 	}
-	return ((char*)big_o);
+	return ((char *)big_o);
 }

@@ -16,12 +16,13 @@
 static size_t	ft_strnlen(const char *s, size_t n)
 {
 	const char *const	s_o = s;
+
 	while (*s && n)
 	{
 		++s;
 		--n;
 	}
-	return	(s - s_o);
+	return (s - s_o);
 }
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)

@@ -6,7 +6,7 @@
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/31 14:25:08 by pkongkha          #+#    #+#             */
-/*   Updated: 2025/08/31 14:51:38 by pkongkha         ###   ########.fr       */
+/*   Updated: 2025/09/06 22:05:00 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,5 @@ void	*ft_calloc(size_t nmemb, size_t size)
 
 	if (nmemb != 0 && alloc_size / nmemb != size)
 		return (NULL);
-	return(malloc(alloc_size));
+	return (malloc(alloc_size));
 }
