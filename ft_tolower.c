@@ -6,13 +6,13 @@
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/30 16:13:06 by pkongkha          #+#    #+#             */
-/*   Updated: 2025/08/31 02:16:24 by pkongkha         ###   ########.fr       */
+/*   Updated: 2025/09/06 19:57:44 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-int	ft_tolower(int c);
+int	ft_tolower(int c)
 {
 	if (c >= 'A' && c <= 'Z')
 		return (c + 32);

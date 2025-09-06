@@ -6,11 +6,12 @@
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 22:55:46 by pkongkha          #+#    #+#             */
-/*   Updated: 2025/09/05 21:48:18 by pkongkha         ###   ########.fr       */
+/*   Updated: 2025/09/06 21:16:30 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
+#include <stdlib.h>
 
 char	*ft_itoa(int n)
 {

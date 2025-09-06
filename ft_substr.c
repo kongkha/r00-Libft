@@ -6,11 +6,12 @@
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 23:07:01 by pkongkha          #+#    #+#             */
-/*   Updated: 2025/09/03 00:41:43 by pkongkha         ###   ########.fr       */
+/*   Updated: 2025/09/06 20:16:00 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
+#include <stdlib.h>
 
 static size_t	ft_strnlen(const char *s, size_t n)
 {

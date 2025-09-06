@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/05 00:48:02 by pkongkha          #+#    #+#             */
-/*   Updated: 2025/09/06 20:57:56 by pkongkha         ###   ########.fr       */
+/*   Created: 2025/09/06 13:44:19 by pkongkha          #+#    #+#             */
+/*   Updated: 2025/09/06 21:27:13 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	size_t	i;
-
-	i = 0;
-	while (*s)
-		f(i++, s++);
+	del(lst->content);
 }

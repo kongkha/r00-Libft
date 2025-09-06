@@ -6,18 +6,23 @@
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/31 02:37:59 by pkongkha          #+#    #+#             */
-/*   Updated: 2025/08/31 03:16:14 by pkongkha         ###   ########.fr       */
+/*   Updated: 2025/09/06 20:34:20 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
+
+static int ft_isspace(int c)
+{
+	return ((c >= '\t' && c <= '\r') || c == ' ');
+}
 
 int	ft_atoi(const char *nptr)
 {
 	int	num;
 	int	neg;
 
-	while (ft_isspace(nptr))
+	while (ft_isspace(*nptr))
 		++nptr;
 	if (*nptr == '-')
 	{

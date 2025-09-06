@@ -6,7 +6,7 @@
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/30 16:07:19 by pkongkha          #+#    #+#             */
-/*   Updated: 2025/08/31 02:16:33 by pkongkha         ###   ########.fr       */
+/*   Updated: 2025/09/06 20:31:23 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,5 @@ int	ft_toupper(int c)
 {
 	if (c >= 'a' && c <= 'z')
 		return (c - 32);
-	return (c)
+	return (c);
 }

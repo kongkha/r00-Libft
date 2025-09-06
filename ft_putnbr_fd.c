@@ -6,39 +6,40 @@
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 21:39:46 by pkongkha          #+#    #+#             */
-/*   Updated: 2025/09/05 22:07:16 by pkongkha         ###   ########.fr       */
+/*   Updated: 2025/09/06 20:56:20 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
+#include <unistd.h>
 
 void	ft_putnbr_fd(int n, int fd)
 {
 	char				num_str[11];
-	const char *const	num_str_end = &num_str
+	char				*num_str_p;
+	const char *const	num_str_end = num_str
 		+ sizeof(num_str) / sizeof(*num_str) - 1;
 	const int			is_neg = n < 0;
-	size_t				counter;
 
-	num_str = num_str_end;
+	num_str_p = num_str;
 	if (is_neg)
 	{
 		while (1) {
-			*num_str = "0123456789"[-n % 10];
+			*num_str_p = "0123456789"[-n % 10];
 			n /= 10;
-			--num_str;
+			--num_str_p;
 			if (!n)
 				break;
 		}
-		*num_str = '-';
+		*num_str_p = '-';
 	}
 	else
 		while (1) {
-			*num_str = "0123456789"[n % 10];
+			*num_str_p = "0123456789"[n % 10];
 			n /= 10;
 			if (!n)
 				break;
-			--num_str;
+			--num_str_p;
 		}
-	write(fd, num_str_o, num_str_end - num_str + 1);
+	write(fd, num_str, num_str_end - num_str_p + 1);
 }

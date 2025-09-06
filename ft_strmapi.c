@@ -6,11 +6,12 @@
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 00:37:52 by pkongkha          #+#    #+#             */
-/*   Updated: 2025/09/05 00:47:38 by pkongkha         ###   ########.fr       */
+/*   Updated: 2025/09/06 20:21:03 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
+#include <stdlib.h>
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {

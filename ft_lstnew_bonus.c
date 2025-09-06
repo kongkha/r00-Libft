@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/05 00:48:02 by pkongkha          #+#    #+#             */
-/*   Updated: 2025/09/06 20:57:56 by pkongkha         ###   ########.fr       */
+/*   Created: 2025/09/06 13:12:27 by pkongkha          #+#    #+#             */
+/*   Updated: 2025/09/06 21:27:01 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
+#include <stdlib.h>
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+t_list	*ft_lstnew(void *content)
 {
-	size_t	i;
+	t_list *const	new_lst = malloc(sizeof(t_list));
 
-	i = 0;
-	while (*s)
-		f(i++, s++);
+	if (!new_lst)
+		return (NULL);
+	new_lst->content = content;
+	new_lst->next = NULL;
+	return (new_lst);
 }
