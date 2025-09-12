@@ -13,27 +13,21 @@
 #include "libft.h"
 #include <stdlib.h>
 
-static size_t	ft_strnlen(const char *s, size_t n)
-{
-	const char *const	s_o = s;
-
-	while (*s && n)
-	{
-		++s;
-		--n;
-	}
-	return (s - s_o);
-}
-
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char			*substr;
-	const size_t	s_len = ft_strnlen(s, start + len);
-	const size_t	alloc_size = (s_len + 1) * sizeof(*s);
+	char		*substr;
+	const char	*s_i;
+	size_t		alloc_size;
 
+	while (*s && start--)
+		++s;
+	s_i = s;
+	while (*s_i && len--)
+		++s_i;
+	alloc_size = s_i - s + 1;
 	substr = malloc(alloc_size);
 	if (!substr)
 		return (NULL);
-	ft_memcpy(substr, s + start, alloc_size);
+	ft_strlcpy(substr, s, alloc_size);
 	return (substr);
 }

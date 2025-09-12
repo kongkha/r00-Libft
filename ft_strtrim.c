@@ -15,40 +15,37 @@
 
 static int	ft_isinlist(const char c, const char *charset, size_t charset_len)
 {
-	while (charset_len--)
+	while (charset_len)
 	{
-		if (*charset == c)
+		if (*charset++ == c)
 			return (1);
-		++charset;
+		--charset_len;
 	}
 	return (0);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t				counter;
-	const size_t		set_len = ft_strlen(set);
-	char				*dst_str;
-	size_t				dst_str_alloc_size;
-	const char *const	s1_o = s1;
+	size_t			trim_size;
+	char			*trim;
+	const char		*trim_start;
+	const char		*trim_end;
+	const size_t	set_len = ft_strlen(set);
 
-	counter = 0;
+	while (ft_isinlist(*s1, set, set_len))
+		++s1;
+	trim_start = s1;
+	trim_end = trim_start;
 	while (*s1)
 	{
-		if (ft_isinlist(*s1, set, set_len))
-			++counter;
+		if (!ft_isinlist(*s1, set, set_len))
+			trim_end = s1;
 		++s1;
 	}
-	dst_str_alloc_size = (counter + 1) * sizeof(*dst_str);
-	dst_str = malloc(dst_str_alloc_size);
-	dst_str += dst_str_alloc_size - 1;
-	*dst_str = '\0';
-	while (s1 != s1_o)
-	{
-		--dst_str;
-		if (ft_isinlist(*s1, set, set_len))
-			*dst_str = *s1;
-		--s1;
-	}
-	return (dst_str);
+	trim_size = trim_end - trim_start + 2;
+	trim = malloc(trim_size);
+	if (!trim)
+		return (NULL);
+	ft_strlcpy(trim, trim_start, trim_size);
+	return (trim);
 }

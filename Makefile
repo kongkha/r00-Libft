@@ -11,6 +11,8 @@ BONUSES_OBJS := $(BONUSES:$(SRCS_DIR)/%.c=$(BUILD_DIR)/%.o)
 INC_FLAGS := $(addprefix -I, $(INC_DIRS))
 CFLAGS += -Wall -Wextra -Werror $(INC_FLAGS)
 
+CC ?= cc
+
 NAME := libft.a
 
 .PHONY: all clean fclean bonus re
@@ -26,6 +28,6 @@ re: fclean all
 $(NAME): $(OBJS)
 	ar rcs $@ $^
 $(BUILD_DIR)/%.o: $(SRCS_DIR)/%.c | $(BUILD_DIR)
-	cc -c $(CFLAGS) -o $@ $<
+	$(CC) -c $(CFLAGS) -o $@ $<
 $(BUILD_DIR):
 	mkdir -p $@

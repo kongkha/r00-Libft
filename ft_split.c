@@ -13,41 +13,71 @@
 #include "libft.h"
 #include <stdlib.h>
 
-static size_t	ft_count_char(char c, char const *s)
+static size_t	ft_count_substr(char const *s, char sep)
 {
 	size_t	count;
+	short	in_word;
 
 	count = 0;
+	in_word = 0;
 	while (*s)
-		if (*s++ == c)
-			++count;
+	{
+		if (*s != sep)
+		{
+			if (!in_word)
+			{
+				in_word = 1;
+				++count;
+			}
+		}
+		else
+			in_word = 0;
+		++s;
+	}
 	return (count);
+}
+
+static void	*ft_substr_clear_ret_null(char **substr)
+{
+	while (*substr)
+		free(*substr++);
+	return (NULL);
+}
+
+static char	*ft_strchrnul(const char *s, int c)
+{
+	while (1)
+	{
+		if (!*s || *s == (char)c)
+			return ((char *)s);
+		++s;
+	}
 }
 
 char	**ft_split(char const *s, char c)
 {
-	const size_t	substr_count = ft_count_char(c, s) + 1;
-	char			**substrs;
-	char			**substrs_o;
-	size_t			alloc_size;
+	char	**substrs;
+	char	**substrs_o;
+	size_t	substr_len;
 
-	substrs = malloc(substr_count + 1);
+	substrs = malloc((ft_count_substr(s, c) + 1) * sizeof(*substrs));
+	if (!substrs)
+		return (NULL);
 	substrs_o = substrs;
-	alloc_size = 1;
-	while (*(s - alloc_size - 1))
+	while (*s)
 	{
-		alloc_size = ft_strchr(s, c) - s + 1;
-		*substrs = malloc(alloc_size * sizeof(**substrs));
+		while (*s == c)
+			++s;
+		substr_len = ft_strchrnul(s, c) - s;
+		if (!substr_len)
+			break ;
+		*substrs = malloc(substr_len + 1);
 		if (!*substrs)
-		{
-			while (--substrs >= substrs_o)
-				free(*substrs);
-			free(substrs_o);
-			return (NULL);
-		}
-		ft_strlcpy(*substrs++, s, alloc_size);
-		s += alloc_size;
+			return (ft_substr_clear_ret_null(substrs_o));
+		ft_strlcpy(*substrs, s, substr_len + 1);
+		s += substr_len;
+		++substrs;
 	}
-	substrs = NULL;
+	*substrs = NULL;
 	return (substrs_o);
 }

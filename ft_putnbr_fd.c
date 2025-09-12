@@ -15,17 +15,17 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	char				num_str[11];
-	char				*num_str_p;
-	const char *const	num_str_end = num_str
-		+ sizeof(num_str) / sizeof(*num_str) - 1;
-	int					neg;
+	char		num_str[11];
+	char		*num_str_p;
+	char *const	num_str_end
+		= num_str + (sizeof(num_str) / sizeof(*num_str)) - 1;
+	int			neg;
 
 	if (n < 0)
 		neg = -1;
 	else
 		neg = 1;
-	num_str_p = num_str;
+	num_str_p = num_str_end;
 	while (1)
 	{
 		*num_str_p = "0123456789"[(n % 10) * neg];
@@ -34,5 +34,7 @@ void	ft_putnbr_fd(int n, int fd)
 			break ;
 		--num_str_p;
 	}
-	write(fd, num_str, num_str_end - num_str_p + 1);
+	if (neg < 0)
+		*(--num_str_p) = '-';
+	write(fd, num_str_p, num_str_end - num_str_p + 1);
 }

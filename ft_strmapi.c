@@ -29,5 +29,6 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 		dst[i] = f(i, *s++);
 		++i;
 	}
+	dst[i] = '\0';
 	return (dst);
 }
