@@ -28,26 +28,26 @@ char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t			trim_size;
 	char			*trim;
-	const char		*trim_start;
-	const char		*trim_end;
+	const char		*s1_trim_start;
+	const char		*s1_trim_end;
 	const size_t	set_len = ft_strlen(set);
 
 	if (!s1)
 		return (NULL);
 	while (ft_isinlist(*s1, set, set_len))
 		++s1;
-	trim_start = s1;
-	trim_end = trim_start;
+	s1_trim_start = s1;
+	s1_trim_end = s1;
 	while (*s1)
 	{
 		if (!ft_isinlist(*s1, set, set_len))
-			trim_end = s1;
+			s1_trim_end = s1;
 		++s1;
 	}
-	trim_size = trim_end - trim_start + 2;
+	trim_size = s1_trim_end - s1_trim_start + 2;
 	trim = malloc(trim_size);
 	if (!trim)
 		return (NULL);
-	ft_strlcpy(trim, trim_start, trim_size);
+	ft_strlcpy(trim, s1_trim_start, trim_size);
 	return (trim);
 }

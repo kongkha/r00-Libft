@@ -16,20 +16,20 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char		*substr;
-	const char	*s_i;
+	const char	*s_substr_start;
 	size_t		alloc_size;
 
 	if (!s)
 		return (NULL);
 	while (*s && start--)
 		++s;
-	s_i = s;
-	while (*s_i && len--)
-		++s_i;
-	alloc_size = s_i - s + 1;
+	s_substr_start = s;
+	while (*s && len--)
+		++s;
+	alloc_size = s - s_substr_start + 1;
 	substr = malloc(alloc_size);
 	if (!substr)
 		return (NULL);
-	ft_strlcpy(substr, s, alloc_size);
+	ft_strlcpy(substr, s_substr_start, alloc_size);
 	return (substr);
 }

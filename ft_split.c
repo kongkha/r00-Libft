@@ -41,17 +41,15 @@ static void	*ft_substr_clear_ret_null(char **substr)
 {
 	while (*substr)
 		free(*substr++);
+	free(substr);
 	return (NULL);
 }
 
 static char	*ft_strchrnul(const char *s, int c)
 {
-	while (1)
-	{
-		if (!*s || *s == (char)c)
-			return ((char *)s);
+	while (*s && *s != (char)c)
 		++s;
-	}
+	return ((char *)s);
 }
 
 char	**ft_split(char const *s, char c)
