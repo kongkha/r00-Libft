@@ -19,6 +19,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	const char	*s_i;
 	size_t		alloc_size;
 
+	if (!s)
+		return (NULL);
 	while (*s && start--)
 		++s;
 	s_i = s;

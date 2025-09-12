@@ -60,6 +60,8 @@ char	**ft_split(char const *s, char c)
 	char	**substrs_o;
 	size_t	substr_len;
 
+	if (!s)
+		return (NULL);
 	substrs = malloc((ft_count_substr(s, c) + 1) * sizeof(*substrs));
 	if (!substrs)
 		return (NULL);
@@ -74,9 +76,8 @@ char	**ft_split(char const *s, char c)
 		*substrs = malloc(substr_len + 1);
 		if (!*substrs)
 			return (ft_substr_clear_ret_null(substrs_o));
-		ft_strlcpy(*substrs, s, substr_len + 1);
+		ft_strlcpy(*substrs++, s, substr_len + 1);
 		s += substr_len;
-		++substrs;
 	}
 	*substrs = NULL;
 	return (substrs_o);

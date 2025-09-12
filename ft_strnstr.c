@@ -16,7 +16,9 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	const size_t	little_len = ft_strlen(little);
 
-	while (len-- && *big)
+	if (!len)
+		return ((char *)big);
+	while (len && *big)
 	{
 		if (little_len > len)
 			return (NULL);
@@ -24,6 +26,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 			++big;
 		else
 			return ((char *)big);
+		--len;
 	}
 	return (NULL);
 }

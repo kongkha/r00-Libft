@@ -32,6 +32,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	const char		*trim_end;
 	const size_t	set_len = ft_strlen(set);
 
+	if (!s1)
+		return (NULL);
 	while (ft_isinlist(*s1, set, set_len))
 		++s1;
 	trim_start = s1;

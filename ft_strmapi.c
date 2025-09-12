@@ -19,16 +19,23 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	size_t	dst_len;
 	size_t	i;
 
+	if (!s)
+		return (NULL);
 	dst_len = ft_strlen(s);
 	dst = malloc(dst_len + 1);
 	if (!dst)
 		return (NULL);
-	i = 0;
-	while (i < dst_len)
+	if (f)
 	{
-		dst[i] = f(i, *s++);
-		++i;
+		i = 0;
+		while (i < dst_len)
+		{
+			dst[i] = f(i, *s++);
+			++i;
+		}
+		dst[i] = '\0';
 	}
-	dst[i] = '\0';
+	else
+		ft_memcpy(dst, s, dst_len + 1);
 	return (dst);
 }
