@@ -19,12 +19,8 @@ void	ft_putnbr_fd(int n, int fd)
 	char		*num_str_p;
 	char *const	num_str_end
 		= num_str + (sizeof(num_str) / sizeof(*num_str)) - 1;
-	int			neg;
+	const int	neg = 1 - (2 * (n < 0));
 
-	if (n < 0)
-		neg = -1;
-	else
-		neg = 1;
 	num_str_p = num_str_end;
 	while (1)
 	{

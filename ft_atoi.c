@@ -28,10 +28,9 @@ int	ft_atoi(const char *nptr)
 	if (*nptr == '-' || *nptr == '+')
 		++nptr;
 	num = 0;
-	while (*nptr && ft_isdigit(*nptr))
+	while (ft_isdigit(*nptr))
 	{
-		num *= 10;
-		num += (*nptr - '0') * neg;
+		num = num * 10 + (*nptr - '0') * neg;
 		++nptr;
 	}
 	return (num);
