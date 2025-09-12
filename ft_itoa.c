@@ -30,23 +30,25 @@ static size_t	count_digits(int num)
 
 char	*ft_itoa(int n)
 {
-	const int	n_o = n;
 	size_t		digits;
-	char		*str;
+	char		*numstr;
 	const int	neg = 1 - (2 * (n < 0));
 
 	digits = count_digits(n);
-	str = malloc(digits + 1 + (n < 0));
-	if (!str)
+	numstr = malloc(digits + 1 + (n < 0));
+	if (!numstr)
 		return (NULL);
 	if (n < 0)
-		*str++ = '-';
-	str += digits;
-	*str-- = '\0';
-	while (digits--)
+		*numstr++ = '-';
+	numstr += digits;
+	*numstr-- = '\0';
+	while (1)
 	{
-		*str-- = "0123456789"[(n % 10) * neg];
+		*numstr = "0123456789"[(n % 10) * neg];
+		if (!(--digits))
+			break ;
 		n /= 10;
+		--numstr;
 	}
-	return (str + (n_o >= 0));
+	return (numstr - (n < 0));
 }
