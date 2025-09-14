@@ -37,14 +37,14 @@ char	*ft_strtrim(char const *s1, char const *set)
 	while (ft_isinlist(*s1, set, set_len))
 		++s1;
 	s1_trim_start = s1;
-	s1_trim_end = s1;
-	while (*s1)
+	s1_trim_end = ft_strchr(s1_trim_start, '\0');
+	while (s1_trim_end > s1_trim_start)
 	{
-		if (!ft_isinlist(*s1, set, set_len))
-			s1_trim_end = s1;
-		++s1;
+		if (!ft_isinlist(*(s1_trim_end - 1), set, set_len))
+			break ;
+		--s1_trim_end;
 	}
-	trim_size = s1_trim_end - s1_trim_start + 2;
+	trim_size = s1_trim_end - s1_trim_start + 1;
 	trim = malloc(trim_size);
 	if (!trim)
 		return (NULL);
